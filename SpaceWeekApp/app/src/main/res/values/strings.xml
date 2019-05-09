@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">World Space Week 2019</string>
+
+    <string name="about">W dniach 5-7 października oraz w listopadzie we Wrocławiu odbędzie się ogólnopolska impreza popularyzująca astronomię oraz astronautykę - World Space Week Wrocław 2018.
+        Wydarzenie rozpoczyna Kosmiczna Gra Miejska oraz warsztaty w Instytucie Astronomicznym UWr. Drugi dzień stanowi maraton warsztatów - w LO nr XVII we Wrocławiu zostanie
+        przeprowadzonych ponad 50 różnych zajęć w podziale na kategorie wiekowe, seanse w planetarium, żywa mapa nieba. W ostatni dzień organizatorzy zapraszają do Wrocławskiego Centrum Kongresowego
+        przy Hali Stulecia na konferencję popularnonaukową, kosmiczną galerię sztuki, sekcję biznesową oraz start balonu stratosferycznego. W listopadzie odbędzie się szkolenie dla
+        nauczycieli oraz konkurs dla uczniów szkół podstawowych. Darmowe bilety na wszystkie wydarzenia do pobrania z www.worldspaceweek.pl. Aktualności na https://www.facebook.com/wswwroclaw/.
+        Projekt dofinansowany z Programu Fundusz Inicjatyw Obywatelskich.</string>
+
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>
