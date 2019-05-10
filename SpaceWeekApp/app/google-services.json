@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "54671685609",
+    "firebase_url": "https://wro-space-week-app.firebaseio.com",
+    "project_id": "wro-space-week-app",
+    "storage_bucket": "wro-space-week-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54671685609:android:173b86f90b590caf",
+        "android_client_info": {
+          "package_name": "com.example.spaceweekapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "54671685609-0ftp53ah2r9cp867b24dt02dbld314kv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCV9z7zw_z8maJBwaY3qUh16qXlcL-oinI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "54671685609-0ftp53ah2r9cp867b24dt02dbld314kv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

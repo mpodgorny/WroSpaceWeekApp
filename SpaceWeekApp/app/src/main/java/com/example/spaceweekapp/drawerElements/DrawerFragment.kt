@@ -10,10 +10,15 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.view.*
+import android.widget.Toast
+import com.example.spaceweekapp.DataClasses.Event
 import com.example.spaceweekapp.R
 import com.example.spaceweekapp.fragments.*
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import java.util.*
-
 
 class DrawerFragment : Fragment() {
 
@@ -23,7 +28,7 @@ class DrawerFragment : Fragment() {
     private var drawerAdapter: DrawerAdapter? = null
     private lateinit var containerView: View
     private var recyclerView: RecyclerView? = null
-
+    lateinit var eventsList: MutableList<Event>
     private val names = arrayOf("Aktualności", "Mapa", "Prelekcje", "Stoiska", "Mój kalendarz", "O wydarzeniu")
 
     private val images = intArrayOf(
@@ -40,8 +45,11 @@ class DrawerFragment : Fragment() {
 
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        firebaseManagement()
         // Inflate the layout for this fragment
         views = inflater!!.inflate(R.layout.fragment_drawer, container, false)
         recyclerView = views!!.findViewById<View>(R.id.listview) as RecyclerView
@@ -58,6 +66,7 @@ class DrawerFragment : Fragment() {
                         openFragment(position)
                         mDrawerLayout!!.closeDrawer(containerView)
                     }
+
                     override fun onLongClick(view: View?, position: Int) {
 
                     }
@@ -95,7 +104,8 @@ class DrawerFragment : Fragment() {
     fun setUpDrawer(fragmentId: Int, drawerLayout: DrawerLayout, toolbar: Toolbar) {
         containerView = activity!!.findViewById(fragmentId)
         mDrawerLayout = drawerLayout
-        mDrawerToggle = object : ActionBarDrawerToggle(activity, drawerLayout, toolbar,
+        mDrawerToggle = object : ActionBarDrawerToggle(
+            activity, drawerLayout, toolbar,
             R.string.drawer_open,
             R.string.drawer_close
         ) {
@@ -139,7 +149,11 @@ class DrawerFragment : Fragment() {
         fun onLongClick(view: View?, position: Int)
     }
 
-    internal class RecyclerTouchListener(context: Context, recyclerView: RecyclerView, private val clickListener: ClickListener?) : RecyclerView.OnItemTouchListener {
+    internal class RecyclerTouchListener(
+        context: Context,
+        recyclerView: RecyclerView,
+        private val clickListener: ClickListener?
+    ) : RecyclerView.OnItemTouchListener {
 
         private val gestureDetector: GestureDetector
 
@@ -172,5 +186,23 @@ class DrawerFragment : Fragment() {
         override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) {
 
         }
+    }
+
+    private fun firebaseManagement() {
+
+        val database = FirebaseDatabase.getInstance()
+
+        val menuListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                dataSnapshot.children.mapNotNullTo(eventsList) { it.getValue<Event>(Event::class.java) }
+                Toast.makeText(activity, "NICECECECE", Toast.LENGTH_LONG).show()
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                println("loadPost:onCancelled ${databaseError.toException()}")
+            }
+        }
+        database.getReference("events").addListenerForSingleValueEvent(menuListener)
+
     }
 }

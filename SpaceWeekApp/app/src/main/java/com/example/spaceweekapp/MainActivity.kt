@@ -6,14 +6,16 @@ import android.support.v4.widget.DrawerLayout
 import android.support.v7.widget.Toolbar
 import android.view.View
 import com.example.spaceweekapp.drawerElements.DrawerFragment
-
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         var toolbar = findViewById<View>(R.id.toolbar) as Toolbar?
+
+
 
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayShowHomeEnabled(true)
