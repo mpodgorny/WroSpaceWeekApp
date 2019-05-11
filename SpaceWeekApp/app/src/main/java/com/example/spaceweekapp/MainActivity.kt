@@ -15,7 +15,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.FirebaseDatabase
-
+import kotlinx.android.synthetic.main.current_events.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     this@MainActivity.eventList = dataSnapshot.value as  Map<String, Event>
-                    Toast.makeText(this@MainActivity, eventList.toString(), Toast.LENGTH_LONG).show()
+                    testTxt.text=eventList.toString()
                 }
 
                 override fun onCancelled(databaseError: DatabaseError) {
@@ -55,6 +55,8 @@ class MainActivity : AppCompatActivity() {
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     speakerList = dataSnapshot.getValue() as HashMap<String, Speaker>
+                    testTxt2.text=speakerList.toString()
+
                 }
                 override fun onCancelled(databaseError: DatabaseError) {
 
@@ -64,6 +66,8 @@ class MainActivity : AppCompatActivity() {
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     standList = dataSnapshot.getValue() as HashMap<String, Stand>
+                    testTxt3.text=standList.toString()
+
                 }
                 override fun onCancelled(databaseError: DatabaseError) {
 
