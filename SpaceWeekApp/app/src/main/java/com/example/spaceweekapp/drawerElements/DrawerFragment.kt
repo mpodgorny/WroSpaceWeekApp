@@ -10,14 +10,8 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.view.*
-import android.widget.Toast
-import com.example.spaceweekapp.DataClasses.Event
 import com.example.spaceweekapp.R
 import com.example.spaceweekapp.fragments.*
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import java.util.*
 
 class DrawerFragment : Fragment() {
@@ -28,7 +22,6 @@ class DrawerFragment : Fragment() {
     private var drawerAdapter: DrawerAdapter? = null
     private lateinit var containerView: View
     private var recyclerView: RecyclerView? = null
-    lateinit var eventsList: MutableList<Event>
     private val names = arrayOf("Aktualności", "Mapa", "Prelekcje", "Stoiska", "Mój kalendarz", "O wydarzeniu")
 
     private val images = intArrayOf(
@@ -49,7 +42,6 @@ class DrawerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        firebaseManagement()
         // Inflate the layout for this fragment
         views = inflater!!.inflate(R.layout.fragment_drawer, container, false)
         recyclerView = views!!.findViewById<View>(R.id.listview) as RecyclerView
@@ -188,21 +180,4 @@ class DrawerFragment : Fragment() {
         }
     }
 
-    private fun firebaseManagement() {
-
-        val database = FirebaseDatabase.getInstance()
-
-        val menuListener = object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                dataSnapshot.children.mapNotNullTo(eventsList) { it.getValue<Event>(Event::class.java) }
-                Toast.makeText(activity, "NICECECECE", Toast.LENGTH_LONG).show()
-            }
-
-            override fun onCancelled(databaseError: DatabaseError) {
-                println("loadPost:onCancelled ${databaseError.toException()}")
-            }
-        }
-        database.getReference("events").addListenerForSingleValueEvent(menuListener)
-
-    }
 }

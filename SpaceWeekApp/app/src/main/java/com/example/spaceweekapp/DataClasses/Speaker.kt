@@ -1,7 +1,8 @@
 package com.example.spaceweekapp.DataClasses
 
 data class Speaker (
+    val description : String,
     val name: String,
-    val surname: String,
-    val description: String
+    val organisation: String,
+    val surname : String
 )
