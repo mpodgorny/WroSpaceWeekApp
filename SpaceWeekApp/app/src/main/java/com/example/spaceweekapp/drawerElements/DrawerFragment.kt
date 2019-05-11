@@ -12,6 +12,9 @@ import android.support.v7.widget.Toolbar
 import android.view.*
 import com.example.spaceweekapp.R
 import com.example.spaceweekapp.fragments.*
+import com.example.spaceweekapp.fragments.CurrentEventsElements.CurrentEventsFragment
+import com.example.spaceweekapp.fragments.LecturesElements.LecturesFragment
+import com.example.spaceweekapp.fragments.StandsElements.StandsFragment
 import java.util.*
 
 class DrawerFragment : Fragment() {

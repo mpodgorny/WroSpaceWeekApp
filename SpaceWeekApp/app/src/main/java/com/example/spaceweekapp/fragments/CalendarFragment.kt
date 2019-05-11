@@ -20,11 +20,9 @@ class CalendarFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        Toast.makeText(activity, "Kalendarz witam", Toast.LENGTH_LONG).show()
+
         return inflater!!.inflate(R.layout.calendar, container, false)
     }
-
-
 
 
 }
