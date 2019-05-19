@@ -9,7 +9,7 @@
             android:layout_width="match_parent"
             android:layout_height="140dp"
             android:layout_alignParentTop="true"
-            android:background="@color/background">
+            android:background="@color/colorPrimary">
 
         <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"

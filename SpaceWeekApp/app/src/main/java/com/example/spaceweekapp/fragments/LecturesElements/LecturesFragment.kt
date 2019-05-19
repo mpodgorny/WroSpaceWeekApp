@@ -61,7 +61,7 @@ class LecturesFragment : Fragment() {
                     "papier nozyce kamien papier nozyce kamien papier nozyce kamien papier nozyce " +
                     "kamien papier nozyce kamien papier nozyce kamien papier nozyce ",
             "12:00", "1", 0, "404", speakers, "prelekcja",
-            "RAMBO 2 a zmysł równowagi u słoneczników"
+            "RAMBO 2 a zmysł równowagi u słoneczników", 100
         )
         events.add(event1)
 
