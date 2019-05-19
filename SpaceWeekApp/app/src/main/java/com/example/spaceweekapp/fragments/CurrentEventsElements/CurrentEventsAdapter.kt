@@ -47,10 +47,10 @@ class MovieViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     }
 
     fun bind(event: HashMap<String, Any>) {
-        title?.text=event["title"] as String
-        description?.text=event["description"] as String
-        time?.text=event["beginning_time"] as String + "-" + event["finish_time"] as String
-        speaker?.text=event["speakers"].toString()
+        title?.text=event.getOrDefault("title","err") as String
+        description?.text=event.getOrDefault("description", "err") as String
+        time?.text=event.getOrDefault("beginning_time","err") as String + "-" + event.getOrDefault("finish_time","err") as String
+        speaker?.text=event.getOrDefault("speakers","err").toString().removePrefix("[").removeSuffix("]")
 
     }
 
