@@ -23,7 +23,6 @@ import java.lang.Exception
 
 class CurrentEventsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
 
     }
@@ -36,8 +35,11 @@ class CurrentEventsFragment : Fragment() {
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     var tempMap: Map<String, HashMap<String, Any>> = dataSnapshot.value as Map<String, HashMap<String, Any>>
+
+
                     my_recycler_view.layoutManager = LinearLayoutManager(context)
-                    my_recycler_view.adapter  = CurrentEventsAdapter(tempMap.values.toList().sortedBy { it["beginning_id"] as Long })
+                    val manager = activity!!.supportFragmentManager
+                    my_recycler_view.adapter  = CurrentEventsAdapter(context!!, tempMap.values.toList().sortedBy { it["beginning_id"] as Long }, manager)
 
                 }
 

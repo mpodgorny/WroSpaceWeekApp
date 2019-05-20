@@ -15,6 +15,7 @@ import com.example.spaceweekapp.fragments.*
 import com.example.spaceweekapp.fragments.CurrentEventsElements.CurrentEventsFragment
 import com.example.spaceweekapp.fragments.LecturesElements.LecturesFragment
 import com.example.spaceweekapp.fragments.StandsElements.StandsFragment
+import com.example.spaceweekapp.fragments.mapElements.MapFragment
 import java.util.*
 
 class DrawerFragment : Fragment() {

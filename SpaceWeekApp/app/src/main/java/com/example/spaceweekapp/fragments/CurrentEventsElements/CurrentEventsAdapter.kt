@@ -1,25 +1,31 @@
 package com.example.spaceweekapp.fragments.CurrentEventsElements
 
+import android.annotation.SuppressLint
+import android.content.Context
+import android.support.v4.app.FragmentManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
-import com.example.spaceweekapp.DataClasses.Event
-import com.example.spaceweekapp.R
+import android.os.Bundle
+import android.support.v7.app.AlertDialog
+import android.view.View
+import android.widget.Toast
+import android.view.View.OnLongClickListener
+import java.security.AccessController.getContext
 
-class CurrentEventsAdapter(private val list: List<HashMap<String, Any>>) : RecyclerView.Adapter<MovieViewHolder>() {
+
+class CurrentEventsAdapter (val context: Context, private val list: List<HashMap<String, Any>>,val manager: FragmentManager) : RecyclerView.Adapter<MovieViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-
-
         val inflater = LayoutInflater.from(parent.context)
         return MovieViewHolder(inflater, parent)
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        var event : HashMap<String, Any> = list[position] as HashMap<String, Any>
-        holder.bind(event)
+        var event: HashMap<String, Any> = list[position]
+        holder.bind(event, position, manager, context)
     }
 
     override fun getItemCount(): Int = list.size
@@ -27,30 +33,58 @@ class CurrentEventsAdapter(private val list: List<HashMap<String, Any>>) : Recyc
 }
 
 class MovieViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
-    RecyclerView.ViewHolder(inflater.inflate(R.layout.one_current_event_element, parent, false)) {
+    RecyclerView.ViewHolder(inflater.inflate(com.example.spaceweekapp.R.layout.one_current_event_element, parent, false)) {
+    var moreInfo: MutableList<String>? = null
     private var title: TextView? = null
     private var description: TextView? = null
     private var time: TextView? = null
     private var speaker: TextView? = null
     private var place: TextView? = null
-
-
-
+    private  var pos : Int = 0
+    private lateinit var ev : HashMap<String, Any>
     init {
-        Log.d("test","tutaj!XD")
-        title = itemView.findViewById(R.id.title)
-        description = itemView.findViewById(R.id.description)
-        time = itemView.findViewById(R.id.time)
-        speaker = itemView.findViewById(R.id.speaker)
-        place = itemView.findViewById(R.id.place)
-
+        title = itemView.findViewById(com.example.spaceweekapp.R.id.title)
+        description = itemView.findViewById(com.example.spaceweekapp.R.id.description)
+        time = itemView.findViewById(com.example.spaceweekapp.R.id.time)
+        speaker = itemView.findViewById(com.example.spaceweekapp.R.id.speaker)
+        place = itemView.findViewById(com.example.spaceweekapp.R.id.place)
     }
 
-    fun bind(event: HashMap<String, Any>) {
-        title?.text=event.getOrDefault("title","err") as String
-        description?.text=event.getOrDefault("description", "err") as String
-        time?.text=event.getOrDefault("beginning_time","err") as String + "-" + event.getOrDefault("finish_time","err") as String
-        speaker?.text=event.getOrDefault("speakers","err").toString().removePrefix("[").removeSuffix("]")
+    @SuppressLint("SetTextI18n")
+    fun bind(event: HashMap<String, Any>, position: Int, manager: FragmentManager, context : Context)  {
+        pos=position
+        ev=event
+        itemView.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putSerializable("events", ev)
+            bundle.putInt("test", 1)
+            val ft = manager.beginTransaction()
+            val newFragment:AboutSingleEventFragment = AboutSingleEventFragment()
+            newFragment.arguments=bundle
+            ft.replace(com.example.spaceweekapp.R.id.container_body, newFragment)
+            ft.addToBackStack("list")
+            ft.commit()
+        }
+        itemView.setOnLongClickListener {
+            val builder = AlertDialog.Builder(context)
+            builder.setTitle("Dodać do kalendarza?")
+            builder.setPositiveButton("Tak") { _, i ->
+            }
+            builder.setNegativeButton("Nie") { _, i ->
+            }
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
+            true
+        }
+
+        place?.text=event.getOrDefault("room", " ") as String
+        title?.text = event.getOrDefault("title", "err") as String
+        description?.text = event.getOrDefault("description", "err") as String
+        time?.text = event.getOrDefault("beginning_time", "err") as String + "-" + event.getOrDefault(
+            "finish_time",
+            "err"
+        ) as String
+        speaker?.text = event.getOrDefault("speakers", "err").toString().removePrefix("[").removeSuffix("]")
 
     }
 

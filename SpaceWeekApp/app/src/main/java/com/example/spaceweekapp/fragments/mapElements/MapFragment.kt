@@ -1,14 +1,12 @@
-package com.example.spaceweekapp.fragments
+package com.example.spaceweekapp.fragments.mapElements
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import com.example.spaceweekapp.R
+import android.view.*
 
 
 class MapFragment : Fragment() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,7 +16,10 @@ class MapFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater!!.inflate(R.layout.map, container, false)
+        val view = inflater!!.inflate(com.example.spaceweekapp.R.layout.map, container, false)
+
+
+        return view
     }
 
 }

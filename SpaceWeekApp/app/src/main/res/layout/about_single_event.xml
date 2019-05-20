@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
+
+    <TextView
+            android:text="Tytuł wydarzenia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/title" android:textColor="@color/colorPrimaryDark"
+            android:textSize="30sp" android:fontFamily="@font/roboto_bold" android:layout_marginTop="24dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintTop_toBottomOf="@+id/place"/>
+    <TextView
+            android:text="Andrzej Nowak, Jan Kowalski"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/speakers"
+            android:textColor="@color/colorPrimaryDark" android:fontFamily="@font/roboto_light"
+            android:textSize="18sp" android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/title"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.487"/>
+    <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/description" android:layout_marginTop="36dp"
+            app:layout_constraintTop_toBottomOf="@+id/speakers" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            android:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec."
+            app:layout_constraintHorizontal_bias="0.0" android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/roboto_regular" android:textSize="14sp"/>
+    <TextView
+            android:text="10:45"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/start" android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/roboto_light" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent" android:textSize="24sp"/>
+    <TextView
+            android:text="Sala konferencyjna 304, I piętro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/place" android:layout_marginTop="28dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toStartOf="@+id/finisk"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toEndOf="@+id/start"
+            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.489"/>
+    <TextView
+            android:text="12:45"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/finisk" android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/roboto_light" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent" android:textSize="24sp"/>
+</android.support.constraint.ConstraintLayout>
