@@ -5,5 +5,6 @@ data class Stand (
     val long_place: String,
     val organisation : String,
     val place : String,
-    val title : String
+    val title : String,
+    val photo_url : String
 )

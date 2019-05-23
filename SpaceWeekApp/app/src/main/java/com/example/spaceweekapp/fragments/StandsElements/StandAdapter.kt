@@ -15,6 +15,8 @@ import android.widget.Toast
 import android.view.View.OnLongClickListener
 import android.widget.ImageView
 import com.example.spaceweekapp.R
+import com.squareup.picasso.MemoryPolicy
+import com.squareup.picasso.Picasso
 import java.security.AccessController.getContext
 
 
@@ -64,6 +66,14 @@ class StandViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         long_place?.text=stand.getOrDefault("long_place", " ") as String
         organisation?.text=stand.getOrDefault("organisation", " ") as String
         photo?.setImageResource(R.drawable.stands)
+
+
+        Picasso.get()
+            .load(stand.getOrDefault("photo_url", "") as String)
+            .placeholder(R.drawable.stands)
+            .error(R.drawable.stands)
+            .fit()
+            .into(photo)
 
     }
 
