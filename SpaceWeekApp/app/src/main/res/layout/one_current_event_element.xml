@@ -14,7 +14,7 @@
         <ImageView
                 android:layout_width="0dp"
                 android:layout_height="1px" app:srcCompat="?attr/dividerVertical"
-                android:id="@+id/imageView2"
+                android:id="@+id/imageView2_snd"
                 android:background="@color/colorPrimaryDark"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/speaker" app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +28,7 @@
             <ImageView
                     android:layout_width="0dp"
                     android:layout_height="1dp" app:srcCompat="?attr/dividerVertical"
-                    android:id="@+id/imageView5"
+                    android:id="@+id/imageView5_snd"
                     android:background="@color/colorPrimary"
                     app:layout_constraintEnd_toEndOf="@+id/time" app:layout_constraintStart_toStartOf="@+id/time"
                     app:layout_constraintHorizontal_bias="1.0"
@@ -36,7 +36,7 @@
             <ImageView
                     android:layout_width="0dp"
                     android:layout_height="1dp" app:srcCompat="?attr/dividerVertical"
-                    android:id="@+id/imageView4"
+                    android:id="@+id/imageView4_snd"
                     android:background="@color/colorPrimary"
                     app:layout_constraintEnd_toEndOf="@+id/time"
                     app:layout_constraintStart_toStartOf="@+id/time"
@@ -85,7 +85,7 @@
         <ImageView
                 android:layout_width="1px"
                 android:layout_height="0dp" app:srcCompat="?attr/dividerHorizontal"
-                android:id="@+id/imageView6"
+                android:id="@+id/imageView6_snd"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/constraintLayout"

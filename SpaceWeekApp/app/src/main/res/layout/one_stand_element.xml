@@ -14,7 +14,7 @@
         <ImageView
                 android:layout_width="0dp"
                 android:layout_height="1px" app:srcCompat="?attr/dividerVertical"
-                android:id="@+id/imageView2"
+                android:id="@+id/imageView2_snd"
                 android:background="@color/colorPrimaryDark"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +28,7 @@
             <ImageView
                     android:layout_width="0dp"
                     android:layout_height="1dp" app:srcCompat="?attr/dividerVertical"
-                    android:id="@+id/imageView5"
+                    android:id="@+id/imageView5_snd"
                     android:background="@color/colorPrimary"
                     app:layout_constraintStart_toEndOf="@+id/stand_photo"
                     app:layout_constraintEnd_toStartOf="@+id/imageView3" android:layout_marginStart="1dp"
@@ -38,7 +38,7 @@
             <ImageView
                     android:layout_width="0dp"
                     android:layout_height="1dp" app:srcCompat="?attr/dividerVertical"
-                    android:id="@+id/imageView4"
+                    android:id="@+id/imageView4_snd"
                     android:background="@color/colorPrimary"
                     app:layout_constraintStart_toEndOf="@+id/constraintLayout"
                     app:layout_constraintEnd_toStartOf="@+id/stand_photo" android:layout_marginStart="1dp"
@@ -79,28 +79,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/stand_place"
                 app:layout_constraintTop_toBottomOf="@+id/stand_description"
-                app:layout_constraintEnd_toEndOf="@+id/imageView2" android:layout_marginEnd="8dp"
-                app:layout_constraintStart_toEndOf="@+id/imageView6" android:layout_marginStart="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/imageView2_snd" android:layout_marginEnd="8dp"
+                app:layout_constraintStart_toEndOf="@+id/imageView6_snd" android:layout_marginStart="8dp"
                 app:layout_constraintHorizontal_bias="0.495"/>
         <TextView
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp" android:id="@+id/stand_long_place"
                 app:layout_constraintEnd_toEndOf="@+id/stand_description" android:layout_marginEnd="8dp"
-                app:layout_constraintStart_toEndOf="@+id/imageView6" android:layout_marginStart="8dp"
+                app:layout_constraintStart_toEndOf="@+id/imageView6_snd" android:layout_marginStart="8dp"
                 app:layout_constraintTop_toBottomOf="@+id/stand_description"/>
         <TextView
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/stand_organisation"
                 app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-                app:layout_constraintStart_toEndOf="@+id/imageView6" android:layout_marginStart="8dp"
+                app:layout_constraintStart_toEndOf="@+id/imageView6_snd" android:layout_marginStart="8dp"
                 app:layout_constraintHorizontal_bias="0.495" android:layout_marginTop="39dp"
                 app:layout_constraintTop_toBottomOf="@+id/stand_long_place"/>
         <ImageView
                 android:layout_width="1px"
                 android:layout_height="0dp" app:srcCompat="?attr/dividerHorizontal"
-                android:id="@+id/imageView6"
+                android:id="@+id/imageView6_snd"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/constraintLayout"
