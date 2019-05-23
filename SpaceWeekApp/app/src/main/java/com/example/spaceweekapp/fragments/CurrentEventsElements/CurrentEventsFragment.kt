@@ -36,7 +36,6 @@ class CurrentEventsFragment : Fragment() {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     var tempMap: Map<String, HashMap<String, Any>> = dataSnapshot.value as Map<String, HashMap<String, Any>>
 
-
                     my_recycler_view.layoutManager = LinearLayoutManager(context)
                     val manager = activity!!.supportFragmentManager
                     my_recycler_view.adapter  = CurrentEventsAdapter(context!!, tempMap.values.toList().sortedBy { it["beginning_id"] as Long }, manager)
