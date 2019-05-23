@@ -1,0 +1,60 @@
+{
+  "events" : {
+    "ev1" : {
+      "beginning_time" : "10:00",
+      "building" : "centrum konferencyjne",
+      "day" : 6,
+      "description" : "Bardzo długi opis natchodzącego wydarzenia",
+      "finish_time" : "11:30",
+      "floor" : "3",
+      "id" : 1,
+      "room" : "304",
+      "speakers" : [ "Andrzej Duda", "Marcin Mulak" ],
+      "title" : "wydarzenie 1 testowe",
+      "type" : "prelekcja"
+    },
+    "ev2" : {
+      "beginning_time" : "0:00",
+      "building" : "plac",
+      "day" : 7,
+      "description" : "Bardzo długi opis natchodzącego wydarzenia",
+      "finish_time" : "1:30",
+      "floor" : "1",
+      "id" : 2,
+      "room" : "104",
+      "speakers" : [ "Andrzej Duda", "Marcin Mulak" ],
+      "title" : "wydarzenie 2 testowe",
+      "type" : "inne"
+    }
+  },
+  "speakers" : {
+    "sp1" : {
+      "description" : "prezydent polski",
+      "name" : "Andrzej",
+      "organisation" : "pałac prezydencki",
+      "surname" : "Duda"
+    },
+    "sp2" : {
+      "description" : "Doktor fizyki",
+      "name" : "Marcin",
+      "organisation" : "Politechnika Wrocławska",
+      "surname" : "Mulak"
+    }
+  },
+  "stands" : {
+    "st1" : {
+      "description" : "Słodkie i strzelają w buzi",
+      "long_place" : "1 piętro, centrum konferencyjne na przeciwko warzywniaka",
+      "organisation" : "czekoladki aero",
+      "place" : "centrum konferencyjne",
+      "title" : "Rowery"
+    },
+    "st2" : {
+      "description" : "świeżaki i warzywa",
+      "long_place" : "plac na lewo od dużego znaku X",
+      "organisation" : "biedronka",
+      "place" : "kosmodrom SpaceX",
+      "title" : "promy kosmiczne"
+    }
+  }
+}
