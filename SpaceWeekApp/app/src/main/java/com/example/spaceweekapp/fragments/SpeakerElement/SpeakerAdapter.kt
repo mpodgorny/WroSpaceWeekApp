@@ -51,8 +51,10 @@ class SpeakerViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     @SuppressLint("SetTextI18n")
     fun bind(speaker: HashMap<String, Any>, position: Int, manager: FragmentManager, context : Context)  {
         var titleTemp =speaker.getOrDefault("degree", "") as String
-         titleTemp= titleTemp.plus(" ").plus( speaker.getOrDefault("name", " ") as String)
-        titleTemp = titleTemp.plus(" ").plus(speaker.getOrDefault("surname", " ") as String)
+        val name =speaker.getOrDefault("name", " ") as String
+        val surname = speaker.getOrDefault("surname", " ") as String
+         titleTemp= titleTemp.plus(" ").plus( name)
+        titleTemp = titleTemp.plus(" ").plus(surname)
         title?.text= titleTemp
         description?.text=speaker.getOrDefault("description", " ") as String
         organisation?.text=speaker.getOrDefault("organisation", " ") as String
@@ -65,6 +67,10 @@ class SpeakerViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
             .error(R.drawable.lecture)
             .fit()
             .into(photo)
+        itemView.setOnClickListener{
+            // TUTAJ MOZESZ SOBIE USTAWIĆ WYWOŁANIE @FUJAREWICZ
+            // w name i surname masz zapisane dane
+        }
 
     }
 
