@@ -14,6 +14,7 @@ import com.example.spaceweekapp.R
 import com.example.spaceweekapp.fragments.*
 import com.example.spaceweekapp.fragments.CurrentEventsElements.CurrentEventsFragment
 import com.example.spaceweekapp.fragments.LecturesElements.LecturesFragment
+import com.example.spaceweekapp.fragments.SpeakerElement.SpeakerFragment
 import com.example.spaceweekapp.fragments.StandsElements.StandsFragment
 import com.example.spaceweekapp.fragments.mapElements.MapFragment
 import java.util.*
@@ -26,9 +27,10 @@ class DrawerFragment : Fragment() {
     private var drawerAdapter: DrawerAdapter? = null
     private lateinit var containerView: View
     private var recyclerView: RecyclerView? = null
-    private val names = arrayOf("Aktualności", "Mapa", "Prelekcje", "Stoiska", "Mój kalendarz", "O wydarzeniu")
+    private val names = arrayOf("Aktualności", "Mapa", "Prelekcje", "Stoiska", "Prelegenci", "Mój kalendarz", "O wydarzeniu")
 
     private val images = intArrayOf(
+        R.drawable.abc_btn_radio_material,
         R.drawable.abc_btn_radio_material,
         R.drawable.abc_btn_radio_material,
         R.drawable.abc_btn_radio_material,
@@ -81,8 +83,10 @@ class DrawerFragment : Fragment() {
             1 -> removeAllFragment(MapFragment(), "Mapa")
             2 -> removeAllFragment(LecturesFragment(), "Prelekcje")
             3 -> removeAllFragment(StandsFragment(), "Stoiska")
-            4 -> removeAllFragment(CalendarFragment(), "Mój kalendarz")
-            5 -> removeAllFragment(AboutEventFragment(), "O wydarzeniu")
+            4 -> removeAllFragment(SpeakerFragment(), "Prelegenci")
+            5 -> removeAllFragment(CalendarFragment(), "Mój kalendarz")
+            6 -> removeAllFragment(AboutEventFragment(), "O wydarzeniu")
+
             else -> {
             }
         }

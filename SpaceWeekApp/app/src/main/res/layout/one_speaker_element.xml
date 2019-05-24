@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/linearLayout">
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:visibility="visible">
+
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="1px" app:srcCompat="?attr/dividerVertical"
+                android:id="@+id/imageView2_snd"
+                android:background="@color/colorPrimaryDark"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintTop_toBottomOf="@+id/speaker_organisation" android:layout_marginTop="8dp"/>
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/constraintLayout"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="8dp">
+
+            <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="1dp" app:srcCompat="?attr/dividerVertical"
+                    android:id="@+id/imageView5_snd"
+                    android:background="@color/colorPrimary"
+                    app:layout_constraintStart_toEndOf="@+id/speaker_photo"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView3" android:layout_marginStart="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+            <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="1dp" app:srcCompat="?attr/dividerVertical"
+                    android:id="@+id/imageView4_snd"
+                    android:background="@color/colorPrimary"
+                    app:layout_constraintStart_toEndOf="@+id/constraintLayout"
+                    app:layout_constraintEnd_toStartOf="@+id/speaker_photo" android:layout_marginStart="1dp"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" tools:srcCompat="@tools:sample/avatars"
+                    android:id="@+id/speaker_photo" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+        </android.support.constraint.ConstraintLayout>
+        <TextView
+                android:text="Lorem ipsum dolor sit amet co."
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" android:id="@+id/speaker_name"
+                android:textSize="23sp" android:textColor="#000000"
+                android:fontFamily="@font/roboto_bold"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/constraintLayout"
+                android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.0"
+                android:textAlignment="center" android:layout_marginTop="4dp"/>
+        <TextView
+                android:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" android:id="@+id/speaker_description"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/colorPrimaryDark"
+                app:layout_constraintTop_toBottomOf="@+id/speaker_name" app:layout_constraintEnd_toEndOf="parent"
+                android:textSize="12sp"
+                android:textAlignment="center"
+                app:layout_constraintHorizontal_bias="0.0"
+                android:layout_marginStart="8dp"
+                app:layout_constraintStart_toEndOf="@+id/constraintLayout" android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"/>
+        <TextView
+                android:text="Lorem ipsum "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/speaker_organisation"
+                app:layout_constraintTop_toBottomOf="@+id/speaker_description"
+                app:layout_constraintEnd_toEndOf="@+id/imageView2_snd" android:layout_marginEnd="8dp"
+                app:layout_constraintStart_toEndOf="@+id/constraintLayout" android:layout_marginStart="8dp"
+                app:layout_constraintHorizontal_bias="0.495" android:layout_marginTop="8dp"/>
+        <ImageView
+                android:layout_width="1px"
+                android:layout_height="0dp" app:srcCompat="?attr/dividerHorizontal"
+                android:id="@+id/imageView6_snd"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/constraintLayout"
+                app:layout_constraintEnd_toStartOf="@+id/title" android:layout_marginStart="1dp"
+                android:layout_marginEnd="1dp" android:background="@color/colorPrimaryDark"/>
+    </android.support.constraint.ConstraintLayout>
+</LinearLayout>
