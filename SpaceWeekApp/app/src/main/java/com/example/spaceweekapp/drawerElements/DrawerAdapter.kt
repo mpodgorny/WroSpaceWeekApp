@@ -27,6 +27,7 @@ class DrawerAdapter(private val context: Context, arrayList: ArrayList<DrawerMod
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
+       // holder.ivicon.setImageResource(R.drawable.lecture)
         holder.title.setText(arrayList[position].getNames())
         holder.ivicon.setImageResource(arrayList[position].getImages())
     }
@@ -42,6 +43,7 @@ class DrawerAdapter(private val context: Context, arrayList: ArrayList<DrawerMod
         init {
             title = itemView.findViewById(R.id.name) as TextView
             ivicon = itemView.findViewById(R.id.ivicon) as ImageView
+            ivicon.setImageResource(R.drawable.lecture)
         }
     }
 }

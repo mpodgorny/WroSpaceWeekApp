@@ -70,6 +70,7 @@ class SpeakerViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         itemView.setOnClickListener{
             // TUTAJ MOZESZ SOBIE USTAWIĆ WYWOŁANIE @FUJAREWICZ
             // w name i surname masz zapisane dane
+
         }
 
     }

@@ -30,13 +30,13 @@ class DrawerFragment : Fragment() {
     private val names = arrayOf("Aktualności", "Mapa", "Prelekcje", "Stoiska", "Prelegenci", "Mój kalendarz", "O wydarzeniu")
 
     private val images = intArrayOf(
-        R.drawable.abc_btn_radio_material,
-        R.drawable.abc_btn_radio_material,
-        R.drawable.abc_btn_radio_material,
-        R.drawable.abc_btn_radio_material,
-        R.drawable.abc_btn_radio_material,
-        R.drawable.abc_btn_radio_material,
-        R.drawable.abc_btn_radio_material
+        R.drawable.current_events,
+        R.drawable.map,
+        R.drawable.lecture,
+        R.drawable.company,
+        R.drawable.lecturer,
+        R.drawable.calendar,
+        R.drawable.info
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
