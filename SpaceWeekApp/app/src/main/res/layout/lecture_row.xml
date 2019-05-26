@@ -29,11 +29,11 @@
             android:layout_height="wrap_content"
             android:id="@+id/textViewDescription" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/textViewSpeaker" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"/>
+            android:layout_marginStart="8dp" android:gravity="center" android:textSize="16sp"/>
     <View
             android:id="@+id/dividerTop"
-            android:layout_width="395dp"
-            android:layout_height="4dp"
+            android:layout_width="0dp"
+            android:layout_height="6dp"
             android:background="?android:attr/listDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +41,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textViewEnd"/>
     <View
             android:id="@+id/dividerMiddle"
-            android:layout_width="395dp"
+            android:layout_width="0dp"
             android:layout_height="1dp"
             android:background="?android:attr/listDivider"
             app:layout_constraintTop_toBottomOf="@+id/textViewDescription" app:layout_constraintStart_toStartOf="parent"
@@ -50,29 +50,49 @@
             android:text="Budunek"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textViewBuilding" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/dividerMiddle"/>
+            android:id="@+id/textViewBuilding" app:layout_constraintStart_toStartOf="@+id/textViewDay"
+            app:layout_constraintTop_toBottomOf="@+id/dividerMiddle"
+            android:textStyle="bold" android:layout_marginTop="8dp" android:textSize="16sp"
+    />
     <TextView
-            android:text="SALA 000"
+            android:text="Dzień"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewDay"
+            android:textStyle="bold" android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/textViewRoom" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"/>
+    <TextView
+            android:text="brak informacji"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textViewRoom"
-            app:layout_constraintTop_toBottomOf="@+id/dividerMiddle"
-            app:layout_constraintStart_toEndOf="@+id/textViewBuilding" android:layout_marginStart="24dp"/>
+            app:layout_constraintStart_toEndOf="@+id/textViewBuilding" android:layout_marginStart="4dp"
+            android:textStyle="bold" android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="@+id/textViewBuilding"/>
     <TextView
             android:text="00:00"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textViewBeginning"
-            app:layout_constraintTop_toBottomOf="@+id/textViewBuilding" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"/>
+            app:layout_constraintTop_toBottomOf="@+id/textViewBuilding"
+            android:textStyle="bold"
+            android:textSize="16sp" app:layout_constraintStart_toEndOf="@+id/textViewDay"
+            android:layout_marginStart="4dp"/>
     <TextView
             android:text="00:00"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textViewEnd"
             app:layout_constraintTop_toBottomOf="@+id/textViewRoom"
-            app:layout_constraintStart_toEndOf="@+id/textViewBeginning"
-            android:layout_marginStart="24dp"/>
+            app:layout_constraintStart_toEndOf="@+id/timeSeparator" android:layout_marginStart="4dp"
+            android:textStyle="bold" android:textSize="16sp"/>
+    <TextView
+            android:text="-"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/timeSeparator"
+            app:layout_constraintTop_toBottomOf="@+id/textViewRoom"
+            android:textStyle="bold" app:layout_constraintStart_toEndOf="@+id/textViewBeginning"
+            android:layout_marginStart="4dp" android:textSize="16sp"/>
 </android.support.constraint.ConstraintLayout>
