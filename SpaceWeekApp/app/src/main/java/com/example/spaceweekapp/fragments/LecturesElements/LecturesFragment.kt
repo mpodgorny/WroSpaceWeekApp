@@ -13,10 +13,13 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.about_single_event.*
 import kotlinx.android.synthetic.main.lectures.view.*
 
 
 class LecturesFragment : Fragment() {
+
+    var events = mutableListOf<Event>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -30,46 +33,46 @@ class LecturesFragment : Fragment() {
     ): View? {
 
 
-        FirebaseDatabase.getInstance().getReference("speakers")
+        FirebaseDatabase.getInstance().getReference("events")
             .addListenerForSingleValueEvent(object : ValueEventListener {
 
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    var tempMap: Map<String, Speaker> = dataSnapshot.value as Map<String, Speaker>
+
+                    var tempMap = dataSnapshot.value as Map<String, HashMap<String, Any>>
 
 
-                    //titleTextView.text = tempMap.toString()
+                    for ((eventId, value) in tempMap) {
+                        events.add(
+                            Event(
+                                value[("beginning_time")].toString(),
+                                value["building"].toString(),
+                                value["day"].toString().toInt(),
+                                value["description"].toString(),
+                                value["finish_time"].toString(),
+                                value["floor"].toString(),
+                                value["id"].toString().toInt(),
+                                value["room"].toString(),
+                                value["speakers"] as List<String>,
+                                value["type"].toString(),
+                                value["title"].toString(),
+                                value["beginning_id"].toString().toInt()
+                            )
+                        )
+                    }
+                    events.sortBy { it.beginning_id }
+
+                    view?.lecturesRecyclerView?.adapter = LecturesAdapter(events)
 
                 }
 
                 override fun onCancelled(databaseError: DatabaseError) {
-
                 }
             })
 
 
         var view = inflater!!.inflate(R.layout.lectures, container, false)
-
-
-        /////////////MOCK EVENTS
-        var speakers = listOf("Andrzej Duda")
-        var events = mutableListOf<Event>()
-        val event1 = Event(
-            "10:00",
-            "budynek xyz",
-            1, "kamien papier nozyce kamien papier nozyce kamien papier nozyce kamien papier nozyce " +
-                    "kamien papier nozyce kamien papier nozyce kamien " +
-                    "papier nozyce kamien papier nozyce kamien papier nozyce kamien papier nozyce " +
-                    "kamien papier nozyce kamien papier nozyce kamien papier nozyce ",
-            "12:00", "1", 0, "404", speakers, "prelekcja",
-            "RAMBO 2 a zmysł równowagi u słoneczników", 100
-        )
-        events.add(event1)
-
-        /////////////////
-
-        //view.lecturesRecyclerView.setBackgroundColor(Color.LTGRAY)
         view.lecturesRecyclerView.layoutManager = LinearLayoutManager(context)
-        view.lecturesRecyclerView.adapter = LecturesAdapter()
+        view.lecturesRecyclerView.adapter = LecturesAdapter(events)
 
 
 
