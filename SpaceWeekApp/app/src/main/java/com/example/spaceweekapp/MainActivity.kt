@@ -11,17 +11,33 @@ import com.example.spaceweekapp.DataClasses.Event
 import com.example.spaceweekapp.DataClasses.Stand
 import com.example.spaceweekapp.DataClasses.Speaker
 import com.example.spaceweekapp.drawerElements.DrawerFragment
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.current_events.*
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
+        FirebaseInstanceId.getInstance().instanceId.addOnCompleteListener(
+            OnCompleteListener { task->
+                if(!task.isSuccessful){
+                    println("failed")
+                    return@OnCompleteListener
+                }
+                val token=task.result?.token
+                println("---------------------------------------------------------------------------")
+                println(token)
+
+
+
+            })
 
         var toolbar = findViewById<View>(R.id.toolbar) as Toolbar?
         setSupportActionBar(toolbar)
