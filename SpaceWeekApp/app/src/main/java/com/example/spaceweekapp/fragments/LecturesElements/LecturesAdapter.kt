@@ -34,6 +34,7 @@ class LecturesViewHolder(var view: View) : RecyclerView.ViewHolder(view) {
             .replace("[", "")
             .replace("]", "")
         view.textViewRoom.text = event.room
+        view.textViewDay.text = "Dzień ${event.day},"
     }
 
 }
