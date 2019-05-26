@@ -79,7 +79,5 @@ class SpeakerViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
             ft.commitAllowingStateLoss()
 
         }
-
     }
-
 }

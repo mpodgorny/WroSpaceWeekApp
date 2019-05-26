@@ -49,10 +49,11 @@ class LecturesFragment : Fragment() {
                     var count =0
 
                     for ((eventId, value) in tempMap) {
+                        if(value["type"].toString()!="prelekcja") continue
 
                         if (specificSpeaker) {
                             if (!value["speakers"].toString().contains(speakerToShow, true)) {
-                                continue;
+                                continue
                             }
                         }
                         count++

@@ -50,6 +50,7 @@ class MovieViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
 
     @SuppressLint("SetTextI18n")
     fun bind(event: HashMap<String, Any>, position: Int, manager: FragmentManager, context : Context)  {
+
         pos=position
         ev=event
         itemView.setOnClickListener {
