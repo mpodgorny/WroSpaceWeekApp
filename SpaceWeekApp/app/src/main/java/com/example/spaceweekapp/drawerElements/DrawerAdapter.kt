@@ -43,7 +43,6 @@ class DrawerAdapter(private val context: Context, arrayList: ArrayList<DrawerMod
         init {
             title = itemView.findViewById(R.id.name) as TextView
             ivicon = itemView.findViewById(R.id.ivicon) as ImageView
-            ivicon.setImageResource(R.drawable.lecture)
         }
     }
 }

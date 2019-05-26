@@ -10,27 +10,31 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
+import android.view.View
+import android.widget.Toast
+import android.view.View.OnLongClickListener
 import com.example.spaceweekapp.MainActivity.Companion.calendar
+import java.security.AccessController.getContext
 
 
-class CurrentEventsAdapter (val context: Context, private val list: List<HashMap<String, Any>>,val manager: FragmentManager) : RecyclerView.Adapter<MovieViewHolder>() {
+class CalendarAdapter (val context: Context, private val list: List<HashMap<String, Any>>) : RecyclerView.Adapter<CalendarViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CalendarViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        //quite ugly initialization
-        return MovieViewHolder(inflater, parent)
+        return CalendarViewHolder(inflater, parent)
     }
 
-    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CalendarViewHolder, position: Int) {
         var event: HashMap<String, Any> = list[position]
-        holder.bind(event, position, manager, context)
+        holder.bind(event, position, context, this)
     }
 
     override fun getItemCount(): Int = list.size
 
+
 }
 
-class MovieViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
+class CalendarViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     RecyclerView.ViewHolder(inflater.inflate(com.example.spaceweekapp.R.layout.one_current_event_element, parent, false)) {
     var moreInfo: MutableList<String>? = null
     private var title: TextView? = null
@@ -49,25 +53,21 @@ class MovieViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     }
 
     @SuppressLint("SetTextI18n")
-    fun bind(event: HashMap<String, Any>, position: Int, manager: FragmentManager, context : Context)  {
+    fun bind(event: HashMap<String, Any>, position: Int, context : Context, calendarAdapter: CalendarAdapter)  {
         pos=position
         ev=event
         itemView.setOnClickListener {
             val bundle = Bundle()
             bundle.putSerializable("events", ev)
             bundle.putInt("test", 1)
-            val ft = manager.beginTransaction()
-            val newFragment:AboutSingleEventFragment = AboutSingleEventFragment()
-            newFragment.arguments=bundle
-            ft.replace(com.example.spaceweekapp.R.id.container_body, newFragment)
-            ft.addToBackStack("list")
-            ft.commit()
         }
         itemView.setOnLongClickListener {
             val builder = AlertDialog.Builder(context)
-            builder.setTitle("Dodać do kalendarza?")
+            builder.setTitle("Usunąć z kalendarza?")
             builder.setPositiveButton("Tak") { _, i ->
-                calendar!!.add(ev)
+                calendar!!.remove(ev)
+                calendarAdapter.notifyDataSetChanged()
+
             }
             builder.setNegativeButton("Nie") { _, i ->
             }
