@@ -46,6 +46,6 @@ class CurrentEventsFragment : Fragment() {
                 override fun onCancelled(databaseError: DatabaseError) {
                 }
             })
-        return inflater!!.inflate(R.layout.current_events, container, false)
+        return inflater.inflate(R.layout.current_events, container, false)
     }
 }

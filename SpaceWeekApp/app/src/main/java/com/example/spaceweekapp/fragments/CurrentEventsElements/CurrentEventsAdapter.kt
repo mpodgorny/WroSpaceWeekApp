@@ -82,11 +82,11 @@ class EventViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         itemView.setOnLongClickListener {
             val builder = AlertDialog.Builder(context)
             builder.setTitle("Dodać do kalendarza?")
-            builder.setPositiveButton("Tak") { _, i ->
-                calendar!!.add(ev)
+            builder.setPositiveButton("Tak") { _, _ ->
+                calendar.add(ev)
 
             }
-            builder.setNegativeButton("Nie") { _, i ->
+            builder.setNegativeButton("Nie") { _, _ ->
             }
             val dialog: AlertDialog = builder.create()
             dialog.show()

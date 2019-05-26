@@ -43,7 +43,7 @@ class SpeakerFragment : Fragment() {
 
                 }
             })
-        return inflater!!.inflate(R.layout.speakers, container, false)
+        return inflater.inflate(R.layout.speakers, container, false)
     }
 
 }

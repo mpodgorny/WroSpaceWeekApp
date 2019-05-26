@@ -24,7 +24,7 @@ class AboutSingleEventFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater!!.inflate(R.layout.about_single_event, container, false)
+        val view = inflater.inflate(R.layout.about_single_event, container, false)
         val list: HashMap<String, Any> = this.arguments?.get("events") as HashMap<String, Any>
         view.speakers.text = list["speakers"].toString().removePrefix("[").removeSuffix("]")
         view.description.text = list["info"].toString()

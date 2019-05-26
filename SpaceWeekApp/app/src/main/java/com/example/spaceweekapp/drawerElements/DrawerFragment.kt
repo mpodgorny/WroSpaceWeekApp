@@ -49,7 +49,7 @@ class DrawerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        views = inflater!!.inflate(R.layout.fragment_drawer, container, false)
+        views = inflater.inflate(R.layout.fragment_drawer, container, false)
         recyclerView = views!!.findViewById<View>(R.id.listview) as RecyclerView
         drawerAdapter =
             DrawerAdapter(activity!!.applicationContext, populateList())
@@ -82,20 +82,20 @@ class DrawerFragment : Fragment() {
     private fun openFragment(position: Int) {
 
         when (position) {
-            0 -> removeAllFragment(CurrentEventsFragment(), "Aktualności")
-            1 -> removeAllFragment(MapFragment(), "Mapa")
-            2 -> removeAllFragment(LecturesFragment(), "Prelekcje")
-            3 -> removeAllFragment(StandsFragment(), "Stoiska")
-            4 -> removeAllFragment(SpeakerFragment(), "Prelegenci")
-            5 -> removeAllFragment(CalendarFragment(), "Mój kalendarz")
-            6 -> removeAllFragment(AboutEventFragment(), "O wydarzeniu")
+            0 -> removeAllFragment(CurrentEventsFragment())
+            1 -> removeAllFragment(MapFragment())
+            2 -> removeAllFragment(LecturesFragment())
+            3 -> removeAllFragment(StandsFragment())
+            4 -> removeAllFragment(SpeakerFragment())
+            5 -> removeAllFragment(CalendarFragment())
+            6 -> removeAllFragment(AboutEventFragment())
 
             else -> {
             }
         }
     }
 
-    fun removeAllFragment(replaceFragment: Fragment, tag: String) {
+    fun removeAllFragment(replaceFragment: Fragment) {
         val manager = activity!!.supportFragmentManager
         val ft = manager.beginTransaction()
         manager.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)

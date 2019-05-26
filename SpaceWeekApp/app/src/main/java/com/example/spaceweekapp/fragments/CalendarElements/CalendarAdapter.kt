@@ -72,12 +72,12 @@ class CalendarViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         itemView.setOnLongClickListener {
             val builder = AlertDialog.Builder(context)
             builder.setTitle("Usunąć z kalendarza?")
-            builder.setPositiveButton("Tak") { _, i ->
-                calendar!!.remove(ev)
+            builder.setPositiveButton("Tak") { _, _ ->
+                calendar.remove(ev)
                 calendarAdapter.notifyDataSetChanged()
 
             }
-            builder.setNegativeButton("Nie") { _, i ->
+            builder.setNegativeButton("Nie") { _, _ ->
             }
             val dialog: AlertDialog = builder.create()
             dialog.show()

@@ -48,7 +48,7 @@ class LecturesFragment : Fragment() {
                     var tempMap = dataSnapshot.value as Map<String, HashMap<String, Any>>
                     var count = 0
 
-                    for ((eventId, value) in tempMap) {
+                    for ((_, value) in tempMap) {
                         if (value["type"].toString() != "prelekcja") continue
 
                         if (specificSpeaker) {
@@ -90,7 +90,7 @@ class LecturesFragment : Fragment() {
             })
 
 
-        var view = inflater!!.inflate(R.layout.lectures, container, false)
+        var view = inflater.inflate(R.layout.lectures, container, false)
         view.lecturesRecyclerView.layoutManager = LinearLayoutManager(context)
         view.lecturesRecyclerView.adapter = LecturesAdapter(events)
 

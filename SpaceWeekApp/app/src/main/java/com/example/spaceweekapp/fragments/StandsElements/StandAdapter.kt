@@ -22,7 +22,7 @@ class StandAdapter(val context: Context, private val list: List<HashMap<String, 
 
     override fun onBindViewHolder(holder: StandViewHolder, position: Int) {
         var stand: HashMap<String, Any> = list[position]
-        holder.bind(stand, position, manager, context)
+        holder.bind(stand, context)
     }
 
     override fun getItemCount(): Int = list.size
@@ -53,7 +53,10 @@ class StandViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     }
 
     @SuppressLint("SetTextI18n")
-    fun bind(stand: HashMap<String, Any>, position: Int, manager: FragmentManager, context: Context) {
+    fun bind(
+        stand: HashMap<String, Any>,
+        context: Context
+    ) {
         title?.text = stand.getOrDefault("title", " ") as String
         description?.text = stand.getOrDefault("description", " ") as String
         place?.text = stand.getOrDefault("place", " ") as String

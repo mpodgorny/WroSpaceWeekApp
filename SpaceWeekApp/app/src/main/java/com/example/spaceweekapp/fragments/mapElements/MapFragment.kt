@@ -22,7 +22,7 @@ class MapFragment : Fragment() {
     ): View? {
 
 
-        val view = inflater!!.inflate(com.example.spaceweekapp.R.layout.map, container, false)
+        val view = inflater.inflate(com.example.spaceweekapp.R.layout.map, container, false)
         val pAttacher: PhotoViewAttacher
         pAttacher = PhotoViewAttacher(view.findViewById(R.id.mapIamge))
         pAttacher.update()

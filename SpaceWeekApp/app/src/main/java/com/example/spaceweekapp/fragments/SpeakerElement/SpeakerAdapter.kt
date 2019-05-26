@@ -25,7 +25,7 @@ class SpeakerAdapter(val context: Context, private val list: List<HashMap<String
 
     override fun onBindViewHolder(holder: SpeakerViewHolder, position: Int) {
         var speaker: HashMap<String, Any> = list[position]
-        holder.bind(speaker, position, manager, context)
+        holder.bind(speaker, manager)
     }
 
     override fun getItemCount(): Int = list.size
@@ -53,7 +53,10 @@ class SpeakerViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     }
 
     @SuppressLint("SetTextI18n")
-    fun bind(speaker: HashMap<String, Any>, position: Int, manager: FragmentManager, context: Context) {
+    fun bind(
+        speaker: HashMap<String, Any>,
+        manager: FragmentManager
+    ) {
         var titleTemp = speaker.getOrDefault("degree", "") as String
         val name = speaker.getOrDefault("name", " ") as String
         val surname = speaker.getOrDefault("surname", " ") as String

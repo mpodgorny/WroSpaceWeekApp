@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() { companion object{
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayShowHomeEnabled(true)
         var drawerFragment = supportFragmentManager.findFragmentById(R.id.fragment_navigation_drawer) as DrawerFragment
-        drawerFragment!!.setUpDrawer(
+        drawerFragment.setUpDrawer(
             R.id.fragment_navigation_drawer,
             findViewById<View>(R.id.drawer_layout) as DrawerLayout,
             toolbar!!
