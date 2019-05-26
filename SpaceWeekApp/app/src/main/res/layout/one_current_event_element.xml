@@ -40,7 +40,7 @@
                     android:background="@color/colorPrimary"
                     app:layout_constraintEnd_toEndOf="@+id/time"
                     app:layout_constraintStart_toStartOf="@+id/time"
-                    app:layout_constraintTop_toBottomOf="@+id/time" app:layout_constraintHorizontal_bias="1.0"/>
+                    app:layout_constraintTop_toBottomOf="@+id/time" app:layout_constraintHorizontal_bias="0.0"/>
             <TextView
                     android:text="10:45-11:30"
                     android:layout_width="wrap_content"
@@ -103,5 +103,15 @@
                 app:layout_constraintTop_toBottomOf="@+id/description" android:layout_marginStart="8dp"
                 app:layout_constraintStart_toStartOf="@+id/title" android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="1.0"/>
+        <TextView
+                android:text="Dzień 1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" android:id="@+id/day"
+                android:fontFamily="@font/roboto_light" android:textColor="@color/colorPrimary"
+                android:textAlignment="center"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toStartOf="@+id/imageView6_snd"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout" app:layout_constraintHorizontal_bias="0.0"/>
     </android.support.constraint.ConstraintLayout>
 </LinearLayout>

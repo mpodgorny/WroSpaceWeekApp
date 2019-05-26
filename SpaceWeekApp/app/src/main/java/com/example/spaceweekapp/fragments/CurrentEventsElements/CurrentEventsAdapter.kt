@@ -49,6 +49,7 @@ class EventViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     private var time: TextView? = null
     private var speaker: TextView? = null
     private var place: TextView? = null
+    private var day: TextView? = null
     private var pos: Int = 0
     private lateinit var ev: HashMap<String, Any>
 
@@ -58,6 +59,7 @@ class EventViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         time = itemView.findViewById(com.example.spaceweekapp.R.id.time)
         speaker = itemView.findViewById(com.example.spaceweekapp.R.id.speaker)
         place = itemView.findViewById(com.example.spaceweekapp.R.id.place)
+        day = itemView.findViewById(com.example.spaceweekapp.R.id.day)
     }
 
     @SuppressLint("SetTextI18n")
@@ -101,7 +103,7 @@ class EventViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
             "err"
         ) as String
         speaker?.text = event.getOrDefault("speakers", "err").toString().removePrefix("[").removeSuffix("]")
-
+        day?.text = "Dzień " + event.getOrDefault("day", "").toString()
     }
 
 }
