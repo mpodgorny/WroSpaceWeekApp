@@ -15,16 +15,23 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.about_single_event.*
 import kotlinx.android.synthetic.main.lectures.view.*
+import kotlinx.android.synthetic.main.one_current_event_element.*
 
 
 class LecturesFragment : Fragment() {
 
     var events = mutableListOf<Event>()
+    var speakerToShow = String()
+    var specificSpeaker = false;
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-
         super.onCreate(savedInstanceState)
+        if (arguments?.containsKey("speakerToShow") == true) {
+            speakerToShow = arguments?.getString("speakerToShow").toString()
+            specificSpeaker = true
+        }
+
     }
 
     override fun onCreateView(
@@ -42,6 +49,15 @@ class LecturesFragment : Fragment() {
 
 
                     for ((eventId, value) in tempMap) {
+
+                        if (specificSpeaker) {
+                            if (!value["speakers"].toString().contains(speakerToShow, true)) {
+                                continue;
+                            }
+                        }
+
+
+
                         events.add(
                             Event(
                                 value[("beginning_time")].toString(),
@@ -81,5 +97,6 @@ class LecturesFragment : Fragment() {
 
         return view
     }
+
 
 }

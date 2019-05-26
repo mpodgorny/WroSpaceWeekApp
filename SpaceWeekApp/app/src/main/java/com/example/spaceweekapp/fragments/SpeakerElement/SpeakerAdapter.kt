@@ -3,6 +3,7 @@ package com.example.spaceweekapp.fragments.SpeakerElement
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.os.Bundle
 import android.support.v4.app.FragmentManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.ImageView
 import com.example.spaceweekapp.R
+import com.example.spaceweekapp.fragments.LecturesElements.LecturesFragment
 import com.squareup.picasso.Picasso
 
 
@@ -68,8 +70,13 @@ class SpeakerViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
             .fit()
             .into(photo)
         itemView.setOnClickListener{
-            // TUTAJ MOZESZ SOBIE USTAWIĆ WYWOŁANIE @FUJAREWICZ
-            // w name i surname masz zapisane dane
+
+            val ft = manager.beginTransaction()
+            manager.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+
+            ft.replace(R.id.container_body, LecturesFragment()
+                .apply { arguments = Bundle().apply { putString("speakerToShow", "$name $surname") } })
+            ft.commitAllowingStateLoss()
 
         }
 
