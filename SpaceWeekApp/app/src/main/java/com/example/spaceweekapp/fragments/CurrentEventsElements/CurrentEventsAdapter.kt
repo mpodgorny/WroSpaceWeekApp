@@ -23,6 +23,9 @@ class CurrentEventsAdapter (val context: Context, private val list: List<HashMap
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         var event: HashMap<String, Any> = list[position]
+        println(event.toString())
+
+
         holder.bind(event, position, manager, context)
     }
 
@@ -50,7 +53,9 @@ class MovieViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
 
     @SuppressLint("SetTextI18n")
     fun bind(event: HashMap<String, Any>, position: Int, manager: FragmentManager, context : Context)  {
+        if(event["type"]=="prelekcja") {
 
+        }
         pos=position
         ev=event
         itemView.setOnClickListener {

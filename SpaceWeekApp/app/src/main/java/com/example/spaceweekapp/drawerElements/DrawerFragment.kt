@@ -28,7 +28,7 @@ class DrawerFragment : Fragment() {
     private var drawerAdapter: DrawerAdapter? = null
     private lateinit var containerView: View
     private var recyclerView: RecyclerView? = null
-    private val names = arrayOf("Aktualności", "Mapa", "Prelekcje", "Stoiska", "Prelegenci", "Mój kalendarz", "O wydarzeniu")
+    private val names = arrayOf("Wydarzenia", "Mapa", "Prelekcje", "Stoiska", "Prelegenci", "Mój kalendarz", "O wydarzeniu")
 
     private val images = intArrayOf(
         R.drawable.current_events,
