@@ -1,25 +1,14 @@
 package com.example.spaceweekapp
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.widget.Toolbar
-import android.util.Log
 import android.view.View
-import android.widget.Toast
-import com.example.spaceweekapp.DataClasses.Event
-import com.example.spaceweekapp.DataClasses.Stand
-import com.example.spaceweekapp.DataClasses.Speaker
 import com.example.spaceweekapp.drawerElements.DrawerFragment
 import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.iid.FirebaseInstanceId
-import kotlinx.android.synthetic.main.current_events.*
+
 class MainActivity : AppCompatActivity() { companion object{
     var calendar : MutableList<HashMap<String, Any>> = emptyList<HashMap<String, Any>>().toMutableList()
 }
@@ -27,7 +16,7 @@ class MainActivity : AppCompatActivity() { companion object{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        FirebaseInstanceId.getInstance().instanceId.addOnCompleteListener(
+            FirebaseInstanceId.getInstance().instanceId.addOnCompleteListener(
             OnCompleteListener { task->
                 if(!task.isSuccessful){
                     println("failed")
@@ -52,6 +41,5 @@ class MainActivity : AppCompatActivity() { companion object{
         )
 
     }
-
 
 }

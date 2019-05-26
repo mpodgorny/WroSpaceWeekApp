@@ -28,7 +28,8 @@ class DrawerFragment : Fragment() {
     private var drawerAdapter: DrawerAdapter? = null
     private lateinit var containerView: View
     private var recyclerView: RecyclerView? = null
-    private val names = arrayOf("Wydarzenia", "Mapa", "Prelekcje", "Stoiska", "Prelegenci", "Mój kalendarz", "O wydarzeniu")
+    private val names =
+        arrayOf("Wydarzenia", "Mapa", "Prelekcje", "Stoiska", "Prelegenci", "Mój kalendarz", "O wydarzeniu")
 
     private val images = intArrayOf(
         R.drawable.current_events,
@@ -48,7 +49,6 @@ class DrawerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         views = inflater!!.inflate(R.layout.fragment_drawer, container, false)
         recyclerView = views!!.findViewById<View>(R.id.listview) as RecyclerView
         drawerAdapter =
@@ -71,16 +71,12 @@ class DrawerFragment : Fragment() {
                 })
 
 
-
         )
 
         openFragment(0)
 
         return views
     }
-
-
-
 
 
     private fun openFragment(position: Int) {

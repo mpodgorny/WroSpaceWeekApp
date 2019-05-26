@@ -25,12 +25,12 @@ class CalendarFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val view  = inflater!!.inflate(R.layout.calendar, container, false)
+        val view = inflater!!.inflate(R.layout.calendar, container, false)
         var calendarRecycler = view.findViewById(R.id.calendar_recycler) as RecyclerView
 
         calendarRecycler.layoutManager = LinearLayoutManager(context)
         val manager = activity!!.supportFragmentManager
-        calendarRecycler.adapter  = CalendarAdapter(context!!,
+        calendarRecycler.adapter = CalendarAdapter(context!!,
             calendar?.toList().sortedBy { it["beginning_id"] as Long })
 
         return view

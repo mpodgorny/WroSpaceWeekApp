@@ -26,7 +26,8 @@ class CurrentEventsFragment : Fragment() {
         FirebaseDatabase.getInstance().getReference("events")
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    var tempMap: MutableMap<String, HashMap<String, Any>> = dataSnapshot.value as MutableMap<String, HashMap<String, Any>>
+                    var tempMap: MutableMap<String, HashMap<String, Any>> =
+                        dataSnapshot.value as MutableMap<String, HashMap<String, Any>>
                     my_recycler_view.layoutManager = LinearLayoutManager(context)
                     val manager = activity!!.supportFragmentManager
 
@@ -34,7 +35,11 @@ class CurrentEventsFragment : Fragment() {
                         forEach { if (it.value["type"] == "prelekcja") remove() }
                     }
 
-                    my_recycler_view.adapter  = CurrentEventsAdapter(context!!, tempMap.values.toList().sortedBy { it["beginning_id"] as Long }, manager)
+                    my_recycler_view.adapter = CurrentEventsAdapter(
+                        context!!,
+                        tempMap.values.toList().sortedBy { it["beginning_id"] as Long },
+                        manager
+                    )
 
                 }
 

@@ -9,8 +9,6 @@ import kotlinx.android.synthetic.main.map.view.*
 import uk.co.senab.photoview.PhotoViewAttacher
 
 
-
-
 class MapFragment : Fragment() {
 
 
@@ -25,7 +23,7 @@ class MapFragment : Fragment() {
 
 
         val view = inflater!!.inflate(com.example.spaceweekapp.R.layout.map, container, false)
-       val pAttacher: PhotoViewAttacher
+        val pAttacher: PhotoViewAttacher
         pAttacher = PhotoViewAttacher(view.findViewById(R.id.mapIamge))
         pAttacher.update()
 

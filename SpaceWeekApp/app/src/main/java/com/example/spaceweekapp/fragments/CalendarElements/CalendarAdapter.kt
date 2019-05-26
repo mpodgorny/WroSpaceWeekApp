@@ -17,7 +17,8 @@ import com.example.spaceweekapp.MainActivity.Companion.calendar
 import java.security.AccessController.getContext
 
 
-class CalendarAdapter (val context: Context, private val list: List<HashMap<String, Any>>) : RecyclerView.Adapter<CalendarViewHolder>() {
+class CalendarAdapter(val context: Context, private val list: List<HashMap<String, Any>>) :
+    RecyclerView.Adapter<CalendarViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CalendarViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -35,15 +36,22 @@ class CalendarAdapter (val context: Context, private val list: List<HashMap<Stri
 }
 
 class CalendarViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
-    RecyclerView.ViewHolder(inflater.inflate(com.example.spaceweekapp.R.layout.one_current_event_element, parent, false)) {
+    RecyclerView.ViewHolder(
+        inflater.inflate(
+            com.example.spaceweekapp.R.layout.one_current_event_element,
+            parent,
+            false
+        )
+    ) {
     var moreInfo: MutableList<String>? = null
     private var title: TextView? = null
     private var description: TextView? = null
     private var time: TextView? = null
     private var speaker: TextView? = null
     private var place: TextView? = null
-    private  var pos : Int = 0
-    private lateinit var ev : HashMap<String, Any>
+    private var pos: Int = 0
+    private lateinit var ev: HashMap<String, Any>
+
     init {
         title = itemView.findViewById(com.example.spaceweekapp.R.id.title)
         description = itemView.findViewById(com.example.spaceweekapp.R.id.description)
@@ -53,9 +61,9 @@ class CalendarViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     }
 
     @SuppressLint("SetTextI18n")
-    fun bind(event: HashMap<String, Any>, position: Int, context : Context, calendarAdapter: CalendarAdapter)  {
-        pos=position
-        ev=event
+    fun bind(event: HashMap<String, Any>, position: Int, context: Context, calendarAdapter: CalendarAdapter) {
+        pos = position
+        ev = event
         itemView.setOnClickListener {
             val bundle = Bundle()
             bundle.putSerializable("events", ev)
@@ -76,7 +84,7 @@ class CalendarViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
             true
         }
 
-        place?.text=event.getOrDefault("room", " ") as String
+        place?.text = event.getOrDefault("room", " ") as String
         title?.text = event.getOrDefault("title", "err") as String
         description?.text = event.getOrDefault("description", "err") as String
         time?.text = event.getOrDefault("beginning_time", "err") as String + "-" + event.getOrDefault(

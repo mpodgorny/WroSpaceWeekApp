@@ -15,7 +15,8 @@ import com.example.spaceweekapp.fragments.LecturesElements.LecturesFragment
 import com.squareup.picasso.Picasso
 
 
-class SpeakerAdapter (val context: Context, private val list: List<HashMap<String, Any>>,val manager: FragmentManager) : RecyclerView.Adapter<SpeakerViewHolder>() {
+class SpeakerAdapter(val context: Context, private val list: List<HashMap<String, Any>>, val manager: FragmentManager) :
+    RecyclerView.Adapter<SpeakerViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SpeakerViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -37,29 +38,30 @@ class SpeakerViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     private var description: TextView? = null
     private var organisation: TextView? = null
     private var title: TextView? = null
-    private var photo: ImageView?=null
+    private var photo: ImageView? = null
     private var place: TextView? = null
-    private  var pos : Int = 0
-    private lateinit var ev : HashMap<String, Any>
+    private var pos: Int = 0
+    private lateinit var ev: HashMap<String, Any>
+
     init {
         title = itemView.findViewById(com.example.spaceweekapp.R.id.speaker_name)
         description = itemView.findViewById(com.example.spaceweekapp.R.id.speaker_description)
         organisation = itemView.findViewById(com.example.spaceweekapp.R.id.speaker_organisation)
-        photo=itemView.findViewById(com.example.spaceweekapp.R.id.speaker_photo)
+        photo = itemView.findViewById(com.example.spaceweekapp.R.id.speaker_photo)
 
 
     }
 
     @SuppressLint("SetTextI18n")
-    fun bind(speaker: HashMap<String, Any>, position: Int, manager: FragmentManager, context : Context)  {
-        var titleTemp =speaker.getOrDefault("degree", "") as String
-        val name =speaker.getOrDefault("name", " ") as String
+    fun bind(speaker: HashMap<String, Any>, position: Int, manager: FragmentManager, context: Context) {
+        var titleTemp = speaker.getOrDefault("degree", "") as String
+        val name = speaker.getOrDefault("name", " ") as String
         val surname = speaker.getOrDefault("surname", " ") as String
-         titleTemp= titleTemp.plus(" ").plus( name)
+        titleTemp = titleTemp.plus(" ").plus(name)
         titleTemp = titleTemp.plus(" ").plus(surname)
-        title?.text= titleTemp
-        description?.text=speaker.getOrDefault("description", " ") as String
-        organisation?.text=speaker.getOrDefault("organisation", " ") as String
+        title?.text = titleTemp
+        description?.text = speaker.getOrDefault("description", " ") as String
+        organisation?.text = speaker.getOrDefault("organisation", " ") as String
         photo?.setImageResource(R.drawable.lecture)
 
 
@@ -69,7 +71,7 @@ class SpeakerViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
             .error(R.drawable.lecture)
             .fit()
             .into(photo)
-        itemView.setOnClickListener{
+        itemView.setOnClickListener {
 
             val ft = manager.beginTransaction()
             manager.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)

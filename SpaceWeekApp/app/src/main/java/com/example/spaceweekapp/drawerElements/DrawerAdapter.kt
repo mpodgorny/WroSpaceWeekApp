@@ -10,7 +10,8 @@ import android.widget.TextView
 import com.example.spaceweekapp.R
 import java.util.ArrayList
 
-class DrawerAdapter(private val context: Context, arrayList: ArrayList<DrawerModel>) : RecyclerView.Adapter<DrawerAdapter.ViewHolder>() {
+class DrawerAdapter(private val context: Context, arrayList: ArrayList<DrawerModel>) :
+    RecyclerView.Adapter<DrawerAdapter.ViewHolder>() {
 
     internal var arrayList = ArrayList<DrawerModel>()
     private val inflater: LayoutInflater
@@ -27,7 +28,6 @@ class DrawerAdapter(private val context: Context, arrayList: ArrayList<DrawerMod
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-       // holder.ivicon.setImageResource(R.drawable.lecture)
         holder.title.setText(arrayList[position].getNames())
         holder.ivicon.setImageResource(arrayList[position].getImages())
     }

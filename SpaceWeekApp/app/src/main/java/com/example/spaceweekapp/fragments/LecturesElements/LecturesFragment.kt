@@ -46,10 +46,10 @@ class LecturesFragment : Fragment() {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
 
                     var tempMap = dataSnapshot.value as Map<String, HashMap<String, Any>>
-                    var count =0
+                    var count = 0
 
                     for ((eventId, value) in tempMap) {
-                        if(value["type"].toString()!="prelekcja") continue
+                        if (value["type"].toString() != "prelekcja") continue
 
                         if (specificSpeaker) {
                             if (!value["speakers"].toString().contains(speakerToShow, true)) {
@@ -76,7 +76,7 @@ class LecturesFragment : Fragment() {
                             )
                         )
                     }
-                    if(count==0){
+                    if (count == 0) {
                         getFragmentManager()!!.popBackStack()
                     }
                     events.sortBy { it.beginning_id }
