@@ -46,7 +46,7 @@ class LecturesFragment : Fragment() {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
 
                     var tempMap = dataSnapshot.value as Map<String, HashMap<String, Any>>
-
+                    var count =0
 
                     for ((eventId, value) in tempMap) {
 
@@ -55,7 +55,7 @@ class LecturesFragment : Fragment() {
                                 continue;
                             }
                         }
-
+                        count++
 
 
                         events.add(
@@ -74,6 +74,9 @@ class LecturesFragment : Fragment() {
                                 value["beginning_id"].toString().toInt()
                             )
                         )
+                    }
+                    if(count==0){
+                        getFragmentManager()!!.popBackStack()
                     }
                     events.sortBy { it.beginning_id }
 

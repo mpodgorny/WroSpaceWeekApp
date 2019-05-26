@@ -73,7 +73,7 @@ class SpeakerViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
 
             val ft = manager.beginTransaction()
             manager.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
-
+            ft.addToBackStack(null)
             ft.replace(R.id.container_body, LecturesFragment()
                 .apply { arguments = Bundle().apply { putString("speakerToShow", "$name $surname") } })
             ft.commitAllowingStateLoss()

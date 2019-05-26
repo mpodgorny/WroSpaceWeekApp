@@ -61,7 +61,7 @@ class MovieViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
             newFragment.arguments=bundle
             ft.replace(com.example.spaceweekapp.R.id.container_body, newFragment)
             ft.addToBackStack("list")
-            ft.commit()
+            ft.commitAllowingStateLoss()
         }
         itemView.setOnLongClickListener {
             val builder = AlertDialog.Builder(context)
