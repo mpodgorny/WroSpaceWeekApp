@@ -33,8 +33,8 @@ class FireMsgService : FirebaseMessagingService() {
        val pendingIntent = PendingIntent.getActivity(this,0,intent, PendingIntent.FLAG_UPDATE_CURRENT)
 
        val contentView = RemoteViews(packageName, R.layout.notification_layout)
-       contentView.setTextViewText(R.id.tv_title,"SpaceWeek")
-       contentView.setTextViewText(R.id.tv_content,remoteMessage.notification!!.body)
+       contentView.setTextViewText(R.id.tv_title,remoteMessage.notification!!.title)
+       contentView.setTextViewText(R.id.tv_content,remoteMessage.notification!!.body )
 
        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
            notificationChannel = NotificationChannel(channelId,description,NotificationManager.IMPORTANCE_HIGH)
