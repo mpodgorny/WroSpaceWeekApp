@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar
 import android.view.*
 import com.example.spaceweekapp.R
 import com.example.spaceweekapp.fragments.*
+import com.example.spaceweekapp.fragments.CalendarElements.CalendarFragment
 import com.example.spaceweekapp.fragments.CurrentEventsElements.CurrentEventsFragment
 import com.example.spaceweekapp.fragments.LecturesElements.LecturesFragment
 import com.example.spaceweekapp.fragments.SpeakerElement.SpeakerFragment
@@ -41,7 +42,6 @@ class DrawerFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -69,12 +69,19 @@ class DrawerFragment : Fragment() {
 
                     }
                 })
+
+
+
         )
 
         openFragment(0)
 
         return views
     }
+
+
+
+
 
     private fun openFragment(position: Int) {
 
